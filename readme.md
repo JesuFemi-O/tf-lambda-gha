@@ -122,6 +122,30 @@ You can manually trigger the workflow via the GitHub Actions interface.
 
 ---
 
+#### **Using the Makefile**
+The `Makefile` includes commands to simplify common tasks. It supports both environments with and without a specified AWS CLI profile.
+
+#### **Variables**
+- **`AWS_REGION`**: AWS region for all operations (default: `us-east-2`).
+- **`BUCKET_NAME`**: Name of the S3 bucket used for Terraform backend.
+- **`PROFILE`**: (Optional) AWS CLI profile name. If omitted, commands will run without a profile.
+
+#### **Examples**
+
+1. **Without a Profile**:
+   By default, no profile is used:
+   ```bash
+   make create-bucket
+   ```
+
+2. **With a Profile**:
+   Set the `PROFILE` variable before running commands:
+   ```bash
+   make PROFILE=my-aws-profile create-bucket
+   ```
+
+---
+
 ## **Makefile Commands**
 
 | Command             | Description                                  |
@@ -157,12 +181,4 @@ curl -X POST <function-url>
 - Extend support for additional triggers (e.g., DynamoDB, SQS).
 - Configure custom domains for the Function URL.
 
----
 
-## **License**
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-Let me know if you'd like additional sections or refinements! 🚀
