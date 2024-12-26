@@ -2,6 +2,8 @@ name: Deploy Lambda and Layers
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'layers/**'
       - 'terraform/**'
