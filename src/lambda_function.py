@@ -1,20 +1,11 @@
 import json
-from faker import Faker
+from common_utils.utils import generate_payload
 
 
 
 def lambda_handler(event, context):
-    # Generate a fake payload
-    fake = Faker()
     
-    payload = {
-        "name": fake.name(),
-        "email": fake.email(),
-        "address": fake.address(),
-        "company": fake.company(),
-        "phone_number": fake.phone_number(),
-        "date_of_birth": fake.date_of_birth().isoformat()
-    }
+    payload = generate_payload()
     
     # Return the payload as a JSON response
     return {
